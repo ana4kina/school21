@@ -1,0 +1,45 @@
+
+syntax = "proto3";
+
+message Spaceship {
+  enum Alignment {
+    ALLY = 0;
+    ENEMY = 1;
+  }
+
+  enum Class {
+    CORVETTE = 0;
+    FRIGATE = 1;
+    CRUISER = 2;
+    DESTROYER = 3;
+    CARRIER = 4;
+    DREADNOUGHT = 5;
+  }
+
+  message Officer {
+    string first_name = 1;
+    string last_name = 2;
+    string rank = 3;
+  }
+
+  Alignment alignment = 1;
+  string name = 2;
+  Class ship_class = 3;
+  float length = 4;
+  int32 crew_size = 5;
+  bool armed = 6;
+  repeated Officer officers = 8;
+}
+
+message Coordinates {
+  int32 ascension_h = 1;
+  int32 ascension_m = 2;
+  float ascension_s = 3;
+  int32 declination = 4;
+  int32 declination_m = 5;
+  float declination_s = 6;
+}
+
+service Report {
+  rpc GetReport(Coordinates) returns (stream Spaceship);
+}

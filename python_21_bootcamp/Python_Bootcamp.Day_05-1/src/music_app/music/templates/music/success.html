@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Success</title>
+</head>
+<body>
+    <h1>File Uploaded Successfully!</h1>
+    <p>Thank you for uploading the file.</p>
+    <a href="{% url 'upload_file' %}">Go back to upload page</a>
+    <h2>Uploaded Files:</h2>
+    <ul>
+        {% for uploaded_file in uploaded_files %}
+            <li>{{ uploaded_file.file.name }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
