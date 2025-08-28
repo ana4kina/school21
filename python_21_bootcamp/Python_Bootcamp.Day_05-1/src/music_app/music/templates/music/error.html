@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error</title>
+</head>
+<body>
+    <h1>Error: Non-audio file detected</h1>
+    <p>The uploaded file has an invalid extension. Only files with the following extensions are allowed: .txt, .pdf, .doc.</p>
+    <a href="{% url 'upload_file' %}">Go back to upload page</a>
+    <h2>Uploaded Files:</h2>
+    <ul>
+        {% for uploaded_file in uploaded_files %}
+            <li>{{ uploaded_file.file.name }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
